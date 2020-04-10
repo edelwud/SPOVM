@@ -8,7 +8,6 @@
 #include <ncurses.h>
 
 #include <thread>
-#include <future>
 #include <mutex>
 
 using namespace std;
@@ -38,7 +37,6 @@ void worker(int current_id) {
         
         if (queue != current_id - 1) {
             g_lock.unlock();
-            this_thread::sleep_for(chrono::milliseconds(1));
             continue;
         }
         
@@ -54,7 +52,7 @@ void worker(int current_id) {
 
         stringstream stream;
 
-        stream << "Worker message: " << gettid() << endl;
+        stream << "Worker message: " << gettid() << ", with id: " << current_id << endl;
         for (char symbol : stream.str()) {
             cout << symbol;
         }
@@ -75,6 +73,7 @@ int main() {
         } },
         { '-', [&](){
             container.erase(container.begin()->first);
+            queue = -1;
             if (container.size() == 0) {
                 system("clear");
                 menu();

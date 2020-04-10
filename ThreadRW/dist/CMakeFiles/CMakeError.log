@@ -1,0 +1,33 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/edelwud/SPOVM/ThreadRW/dist/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_05a78/fast"
+/usr/bin/make -f CMakeFiles/cmTC_05a78.dir/build.make CMakeFiles/cmTC_05a78.dir/build
+make[1]: вход в каталог «/home/edelwud/SPOVM/ThreadRW/dist/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_05a78.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_05a78.dir/CheckSymbolExists.c.o   -c /home/edelwud/SPOVM/ThreadRW/dist/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_05a78
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05a78.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_05a78.dir/CheckSymbolExists.c.o  -o cmTC_05a78 
+/usr/bin/ld: CMakeFiles/cmTC_05a78.dir/CheckSymbolExists.c.o: в функции «main»:
+CheckSymbolExists.c:(.text+0x1f): неопределённая ссылка на «pthread_create»
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_05a78.dir/build.make:87: cmTC_05a78] Ошибка 1
+make[1]: выход из каталога «/home/edelwud/SPOVM/ThreadRW/dist/CMakeFiles/CMakeTmp»
+make: *** [Makefile:121: cmTC_05a78/fast] Ошибка 2
+
+File /home/edelwud/SPOVM/ThreadRW/dist/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

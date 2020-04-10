@@ -1,0 +1,3 @@
+/home/edelwud/SPOVM/ThreadRW/lib/CMakeFiles/rebuild_cache.dir
+/home/edelwud/SPOVM/ThreadRW/lib/CMakeFiles/AsyncRW.dir
+/home/edelwud/SPOVM/ThreadRW/lib/CMakeFiles/edit_cache.dir

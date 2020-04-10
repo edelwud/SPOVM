@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libAsyncRW.so -o libAsyncRW.so CMakeFiles/AsyncRW.dir/src/main.cpp.o -lncurses -laio -pthread 
